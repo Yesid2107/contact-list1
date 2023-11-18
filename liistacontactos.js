@@ -35,7 +35,25 @@ let nuevoContacto = {
     }
 
 
-
+    function actualizarContacto(id, nuevoNombre, nuevoTelefono) {
+        // Encuentra el índice del contacto con el ID dado
+        var indice = contactos.findIndex(function (contacto) {
+            return contacto.id === id;
+        });
+    
+        // Verifica si se encontró el contacto
+        if (indice !== -1) {
+            // Actualiza los valores del contacto
+            contactos[indice].nombre = nuevoNombre;
+            contactos[indice].telefono = nuevoTelefono;
+    
+            // Puedes realizar acciones adicionales aquí, como enviar los cambios al servidor si es necesario
+    
+            console.log('Contacto actualizado:', contactos[indice]);
+        } else {
+            console.log('Contacto no encontrado con el ID:', id);
+        }
+    }
 
 borrarContacto(2);
 imprimirContacto();
